@@ -39,6 +39,11 @@ public class AccountManagementServiceImpl implements AccountManagementService, U
         return createUserWithRole(user, "ROLE_ADMIN", adminName);
     }
 
+    // @Override
+    // public Users updateUser(Users user, Users adminName){
+    //     return updateUserDetails(user, adminName);
+    // }
+
     // ========== PRIVATE HELPER ==========
 
     @Override
@@ -90,4 +95,17 @@ public class AccountManagementServiceImpl implements AccountManagementService, U
         int nextAcc = lastUser.map(u -> Integer.parseInt(u.getAccountNo())).orElse(0) + 1;
         return String.format("%05d", nextAcc);
     }
+
+
+    public void logAction(String actionType, Users adminUser, Users targetUser) {
+        AdminLog log = new AdminLog();
+        log.setActionType(actionType);
+        log.setAdminUser(adminUser);
+        log.setTargetUser(targetUser);
+        log.setDateTime(LocalDateTime.now());
+        // log.setActionType("UPDATE_DETAILS");
+        log.setDescription("Update User " + targetUser.getName());
+        adminLogRepository.save(log);
+    }
+
 }

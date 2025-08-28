@@ -22,12 +22,12 @@ public class UserUpdateServiceImpl implements UserUpdateService {
         return userRepository.save(user);
     }
 
-    @Override
-    public Users updateCrn(Long userId, String newCrn) {
-        Users user = findUserOrThrow(userId);
-        user.setCrn(newCrn);
-        return userRepository.save(user);
-    }
+    // @Override
+    // public Users updateCrn(Long userId, String newCrn) {
+    //     Users user = findUserOrThrow(userId);
+    //     user.setCrn(newCrn);
+    //     return userRepository.save(user);
+    // }
 
     @Override
     public Users updateStatus(Long userId, String newStatus) {

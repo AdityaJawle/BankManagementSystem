@@ -5,4 +5,6 @@ import com.aj.bms.Entity.Users;
 public interface AccountManagementService {
     Users createUser(Users user, Users adminName);       // For ROLE_USER
     Users createAdmin(Users user, Users adminName);      // For ROLE_ADMIN
+    // Users updateUser(Users user, Users adminName);
+
 }

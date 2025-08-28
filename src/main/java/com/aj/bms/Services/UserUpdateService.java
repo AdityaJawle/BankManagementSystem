@@ -6,7 +6,7 @@ public interface UserUpdateService {
 
     Users updateUserName(Long userId, String newName);
 
-    Users updateCrn(Long userId, String newCrn);
+    // Users updateCrn(Long userId, String newCrn);
 
     Users updateStatus(Long userId, String newStatus); // ACTIVE / INACTIVE
 

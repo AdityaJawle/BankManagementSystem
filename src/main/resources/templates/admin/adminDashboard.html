@@ -13,7 +13,6 @@
         <a th:href="@{/admin/adminDashboard}">Dashboard</a>
         <a th:href="@{/admin/create-user}">Create User</a>
         <a th:href="@{/admin/create-admin}">Create Admin</a>
-        <a th:href="@{/admin/search}">Update Details</a>
         <a th:href="@{/admin/change-pin}">Change PIN</a>
         <a th:href="@{/admin/adminLogs}">View Logs</a>
         <form th:action="@{/logout}" method="post" style="margin-top: 20px;">
@@ -32,6 +31,7 @@
                     <option value="crn">CRN</option>
                     <option value="name">Name</option>
                     <option value="accountNo">Account Number</option>
+                    <option value="closed">Closed Accounts</option>
                 </select>
                 <button type="submit">Search</button>
             </form>
@@ -59,7 +59,11 @@
                     <td th:text="${user.status}"></td>
                     <td th:text="${user.balance}"></td>
                     <td>
-                        <a th:href="@{'/admin/update-user/' + ${user.crn}}"><button>Update</button></a>
+                        <a th:if="${user.status != 'INACTIVE'}"
+                        th:href="@{'/admin/update-user/' + ${user.crn}}">
+                        <button>Update</button>
+                        </a>
+                        <span th:if="${user.status == 'INACTIVE'}" style="color: grey;">Closed</span>
                     </td>
                 </tr>
                 <tr th:if="${users.size() == 0}">
