@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+    .content {
+      margin-left: 240px;
+      padding: 50px;
+      width: calc(100% - 260px);
+    }
+  </style>
+</head>
+<body>
+
+  <div th:replace="fragments/sidebar :: sidebar(${userName}, 'USER')"></div>
+
+  <div class="content">
+    <h2>Welcome to your dashboard</h2>
+    <!-- user-specific content here -->
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Change PIN</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <p th:text="'Welcome, ' + ${adminName}"></p>
+        <a th:href="@{/admin/adminDashboard}">Dashboard</a>
+        <a th:href="@{/admin/create-user}">Create User</a>
+        <a th:href="@{/admin/create-admin}">Create Admin</a>
+        <a th:href="@{/admin/search}">Update Details</a>
+        <a th:href="@{/admin/change-pin}">Change PIN</a>
+        <a th:href="@{/admin/adminLogs}">View Logs</a>
+        <form th:action="@{/logout}" method="post" style="margin-top: 20px;">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+    <!-- Main Content -->
+    <div class="content">
+        <h2>Change Your PIN</h2>
+        <div th:if="${success}" style="color: green;">
+            <p th:text="${success}"></p>
+        </div>
+        <div th:if="${error}" style="color: red;">
+            <p th:text="${error}"></p>
+        </div>
+        <form th:action="@{/admin/change-pin}" method="post">
+            <div>
+                <label for="oldPin">Current PIN:</label>
+                <input type="password" name="oldPin" required />
+            </div>
+            <div>
+                <label for="newPin">New PIN:</label>
+                <input type="password" name="newPin" required />
+            </div>
+            <button type="submit">Change PIN</button>
+        </form>
+    </div>
+</body>
+</html>
