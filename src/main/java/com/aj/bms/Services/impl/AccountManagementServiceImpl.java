@@ -44,6 +44,10 @@ public class AccountManagementServiceImpl implements AccountManagementService, U
         Optional<Users> user = userRepository.findByCrn(crn);
         if (user.isPresent()) {
             var userObj = user.get();
+            if (!"ACTIVE".equalsIgnoreCase(userObj.getStatus())) {
+                logger.warn("Inactive account tried to login: {}", crn);
+                throw new DisabledException("Your account is Closed. Please contact the bank.");
+            }
             return new org.springframework.security.core.userdetails.User(
                 userObj.getCrn(),
                 userObj.getPin(),
@@ -100,3 +104,4 @@ public class AccountManagementServiceImpl implements AccountManagementService, U
     }
 
 }
+
