@@ -24,10 +24,15 @@
                 <p class="success">You have been logged out.</p>
             </div>
 
+            <div th:if="${param.error}">
+                <p class="error" th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message}"></p>
+            </div>
+
             <button type="submit">Login</button>
         </form>
     </div>
 </body>
 </html>
+
 
 
