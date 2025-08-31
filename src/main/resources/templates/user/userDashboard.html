@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    <div class="sidebar">
+        <h2>User Panel</h2>
+        <p th:text="'Welcome, ' + ${userName}"></p>
+        <a th:href="@{/user/userDashboard}">Dashboard</a>
+        <a th:href="@{/user/deposit}">Deposit</a>
+        <a th:href="@{/user/withdraw}">Withdraw</a>
+        <a th:href="@{/user/transfer}">Money Transfer</a>
+        <a th:href="@{/user/change-pin}">Change PIN</a>
+        <a th:href="@{/user/statement}">User Statement</a>
+        <form th:action="@{/logout}" method="post" style="margin-top: 20px;">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+    <div class="content">
+        <h2>Account Overview</h2>
+        <table class="account-table">
+            <tr>
+                <th>CRN</th>
+                <td th:text="${users.crn}"></td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td th:text="${users.name}"></td>
+            </tr>
+            <tr>
+                <th>Account Number</th>
+                <td th:text="${users.accountNo}"></td>
+            </tr>
+            <tr>
+                <th>Balance</th>
+                <td th:text="'₹ ' + ${users.balance}"></td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>

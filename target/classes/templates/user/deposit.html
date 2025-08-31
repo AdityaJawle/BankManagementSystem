@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Deposit</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    <div class="sidebar">
+        <h2>User Panel</h2>
+        <p th:text="'Welcome, ' + ${userName}"></p>
+        <a th:href="@{/user/userDashboard}">Dashboard</a>
+        <a th:href="@{/user/deposit}">Deposit</a>
+        <a th:href="@{/user/withdraw}">Withdraw</a>
+        <a th:href="@{/user/transfer}">Money Transfer</a>
+        <a th:href="@{/user/change-pin}">Change PIN</a>
+        <a th:href="@{/user/statement}">User Statement</a>
+        <form th:action="@{/logout}" method="post" style="margin-top: 20px;">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+
+    <div class="content">
+        <h2>Deposit Funds</h2>
+        <form th:action="@{/user/deposit}" method="post" style="max-width: 400px;">
+            <div>
+                <label for="amount">Enter Amount to Deposit (₹):</label><br>
+                <input type="number" id="amount" name="amount" step="0.01" min="1" required />
+            </div>
+            <br>
+            <button type="submit">Deposit</button>
+        </form>
+
+        <div th:if="${successMessage}" style="margin-top: 20px; color: green;">
+            <p th:text="${successMessage}"></p>
+        </div>
+        <div th:if="${errorMessage}" style="margin-top: 20px; color: red;">
+            <p th:text="${errorMessage}"></p>
+        </div>
+    </div>
+</body>
+</html>

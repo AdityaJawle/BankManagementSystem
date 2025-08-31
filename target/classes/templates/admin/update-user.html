@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update User Details</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<div class="sidebar">
+        <h2>Admin Panel</h2>
+        <p th:text="'Welcome, ' + ${adminName}"></p>
+        <a th:href="@{/admin/adminDashboard}">Dashboard</a>
+        <a th:href="@{/admin/create-user}">Create User</a>
+        <a th:href="@{/admin/create-admin}">Create Admin</a>
+        <a th:href="@{/admin/change-pin}">Change PIN</a>
+        <a th:href="@{/admin/adminLogs}">View Logs</a>
+        <form th:action="@{/logout}" method="post" style="margin-top: 20px;">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+    <div class="content">
+        <h2>Update User</h2>
+        <form th:action="@{/admin/update-user/{crn}(crn=${user.crn})}" th:object="${user}" method="post">
+        <div>
+            <label>CRN:</label>
+            <input type="text" th:field="*{crn}" readonly />
+        </div>
+
+        <div>
+            <label>Name:</label>
+            <input type="text" th:field="*{name}" 
+                th:attr="disabled=${user.status == 'INACTIVE'}" />
+        </div>
+
+        <div>
+            <label>Account No:</label>
+            <input type="text" th:field="*{accountNo}" readonly />
+        </div>
+
+        <div>
+            <label>Balance:</label>
+            <input type="number" step="0.01" th:field="*{balance}" 
+                th:attr="disabled=${user.status == 'INACTIVE'}" />
+        </div>
+
+        <div style="margin: 10px 0;">
+            <button type="button" onclick="adjustBalance(500)" 
+                th:attr="disabled=${user.status == 'INACTIVE'}">+500</button>
+            <button type="button" onclick="adjustBalance(-500)" 
+                th:attr="disabled=${user.status == 'INACTIVE'}">-500</button>
+        </div>
+
+        <div>
+            <label>Status:</label>
+            <input type="text" th:field="*{status}" readonly />
+        </div>
+
+        <div>
+            <label>Description (reason for balance update):</label>
+            <textarea name="balanceUpdateDescription" id="balanceUpdateDescription" rows="3" cols="40" 
+                th:attr="disabled=${user.status == 'INACTIVE'}" required></textarea>
+        </div>
+
+        <script>
+            function adjustBalance(amount) {
+                const balanceInput = document.getElementById('balance');
+                let currentBalance = parseFloat(balanceInput.value) || 0;
+                let newBalance = currentBalance + amount;
+                if(newBalance < 0) {
+                    alert("Balance cannot be negative");
+                    return;
+                }
+                balanceInput.value = newBalance.toFixed(2);
+            }
+        </script>
+
+
+        <div>
+            <button type="submit" th:attr="disabled=${user.status == 'INACTIVE'}">Update</button>
+        </div>
+    </form>
+
+    <form th:action="@{/admin/reset-pin/{crn}(crn=${user.crn})}" method="post"
+        th:if="${user.status != 'INACTIVE'}" style="margin-top: 10px;">
+        <button type="submit">Reset PIN</button>
+    </form>
+    
+    <form th:action="@{/admin/close-account/{crn}(crn=${user.crn})}" method="post"
+        th:if="${user.status != 'INACTIVE'}" style="margin-top: 10px;">
+        <button type="submit">Close Account</button>
+    </form>
+    
+    <div th:if="${message}">
+        <p th:text="${message}"></p>
+    </div>
+
+    </div>
+</body>
+</html>
