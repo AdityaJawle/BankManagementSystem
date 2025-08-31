@@ -15,7 +15,6 @@ This application simulates a real-world bank where only the **admin can create a
 - [Screenshots](#screenshots)
 - [Getting Started](#getting-started)
 - [Security](#security)
-- [Future Improvements](#future-improvements)
 - [License](#license)
 
 ---
@@ -78,19 +77,31 @@ This is a secure Bank Management System with role-based login for Admin and User
 
 > Replace these with actual images or add them to a `/screenshots/` folder in your GitHub repo.
 
+## 🖼️ Screenshots
+
+### 🛡️ Admin Side
+
 | Page | Screenshot |
 |------|------------|
-| Login Page | ![]<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/56210ddf-d7a3-4c73-87f5-d6941e710621" /> |
-| Admin Dashboard | ![]<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f93ac2bd-27d2-4a74-894a-077fb9c4b610" /> |
-| Create User/Admin | ![]<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/91edb271-cabf-4415-89d9-30a7aabeccee" />,
-                      ![]<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2cf9b0da-71dc-4361-a3e9-a6029465480f" /> |
-| Update User | ![]<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/17ea98ff-4f2c-4145-b147-b87c1fee7637" /> |
-| Admin Logs | ![] <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b20646cd-e433-4a68-874c-a98156fd86cd" /> |
-| User Dashboard | ![]<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/23f52adc-2944-4be8-90b7-04d25fcf5828" /> |
-| Deposit Page | ![]<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b7c52b8d-2d28-42f9-b19c-973546fd745a" /> |
-| Withdraw Page | ![]<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0a4096fe-31e7-4543-89ec-37f7ebed5dc2" /> |
-| Transfer Page | ![]<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c95d921c-865b-4f8f-9c7d-c8e12fa0de62" /> |
-| Statement Page | ![]<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/61a7c4e0-e360-4c4a-9002-16c0b3da383d" /> |
+| **Login Page** | <img width="100%" alt="Login Page" src="https://github.com/user-attachments/assets/56210ddf-d7a3-4c73-87f5-d6941e710621" /> |
+| **Admin Dashboard** | <img width="100%" alt="Admin Dashboard" src="https://github.com/user-attachments/assets/f93ac2bd-27d2-4a74-894a-077fb9c4b610" /> |
+| **Create User** | <img width="100%" alt="Create User" src="https://github.com/user-attachments/assets/91edb271-cabf-4415-89d9-30a7aabeccee" /> |
+| **Create Admin** | <img width="100%" alt="Create Admin" src="https://github.com/user-attachments/assets/2cf9b0da-71dc-4361-a3e9-a6029465480f" /> |
+| **Update User Details** | <img width="100%" alt="Update User" src="https://github.com/user-attachments/assets/17ea98ff-4f2c-4145-b147-b87c1fee7637" /> |
+| **Admin Logs** | <img width="100%" alt="Admin Logs" src="https://github.com/user-attachments/assets/b20646cd-e433-4a68-874c-a98156fd86cd" /> |
+
+---
+
+### 👤 User Side
+
+| Page | Screenshot |
+|------|------------|
+| **User Dashboard** | <img width="100%" alt="User Dashboard" src="https://github.com/user-attachments/assets/23f52adc-2944-4be8-90b7-04d25fcf5828" /> |
+| **Deposit Page** | <img width="100%" alt="Deposit Page" src="https://github.com/user-attachments/assets/b7c52b8d-2d28-42f9-b19c-973546fd745a" /> |
+| **Withdraw Page** | <img width="100%" alt="Withdraw Page" src="https://github.com/user-attachments/assets/0a4096fe-31e7-4543-89ec-37f7ebed5dc2" /> |
+| **Transfer Page** | <img width="100%" alt="Transfer Page" src="https://github.com/user-attachments/assets/c95d921c-865b-4f8f-9c7d-c8e12fa0de62" /> |
+| **Statement Page** | <img width="100%" alt="Statement Page" src="https://github.com/user-attachments/assets/61a7c4e0-e360-4c4a-9002-16c0b3da383d" /> |
+
 
 ---
 
