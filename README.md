@@ -75,9 +75,6 @@ This is a secure Bank Management System with role-based login for Admin and User
 
 ## 🖼️ Screenshots
 
-
-## 🖼️ Screenshots
-
 ### 🛡️ Admin Side
 
 | Page | Screenshot |
