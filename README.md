@@ -75,7 +75,6 @@ This is a secure Bank Management System with role-based login for Admin and User
 
 ## 🖼️ Screenshots
 
-> Replace these with actual images or add them to a `/screenshots/` folder in your GitHub repo.
 
 ## 🖼️ Screenshots
 
