@@ -39,12 +39,17 @@
         <tbody>
             <tr th:each="txn : ${statements}">
                 <td th:text="${#temporals.format(txn.dateTime, 'dd-MM-yyyy HH:mm')}"></td>
-                <td th:text="${txn.transactionType}"
-                    th:classappend="${txn.transactionType == 'CREDIT'} ? 'text-credit' : 'text-debit'">
+                <td th:text="${txn.transactionType}">
                 </td>
                 <td>
-                    <span th:if="${txn.transactionType == 'CREDIT'}" class="text-credit">+ ₹<span th:text="${txn.amount}"></span></span>
-                    <span th:if="${txn.transactionType == 'DEBIT'}" class="text-debit">– ₹<span th:text="${txn.amount}"></span></span>
+                    <span th:switch="${txn.transactionType}">
+                        <span th:case="'CREDIT'" class="text-credit">+ ₹<span th:text="${txn.amount}"></span></span>
+                        <span th:case="'DEBIT'" class="text-debit">– ₹<span th:text="${txn.amount}"></span></span>
+                        <span th:case="'TRANSFER_IN'" class="text-transfer-in">+ ₹<span th:text="${txn.amount}"></span></span>
+                        <span th:case="'TRANSFER_OUT'" class="text-transfer-out">– ₹<span th:text="${txn.amount}"></span></span>
+                        <span th:case="'WITHDRAW'" class="text-withdraw">– ₹<span th:text="${txn.amount}"></span></span>
+                        <span th:case="'DEPOSIT'" class="text-deposit">+ ₹<span th:text="${txn.amount}"></span></span>
+                    </span>
                 </td>
                 <td>₹<span th:text="${txn.balance}"></span></td>
                 <td th:text="${txn.remarks}"></td>
