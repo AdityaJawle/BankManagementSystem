@@ -97,6 +97,26 @@ body {
     font-weight: bold;
 }
 
+.text-transfer-in {
+    color: green;
+    font-weight: bold;
+}
+
+.text-transfer-out {
+    color: red;
+    font-weight: bold;
+}
+
+.text-deposit {
+    color: green;
+    font-weight: bold;
+}
+
+.text-withdraw {
+    color: red;
+    font-weight: bold;
+}
+
 form {
     margin-top: 20px;
 }
@@ -246,3 +266,4 @@ body.login-page {
 body.login-page .container {
   border: 2px solid red !important;
 }
+
